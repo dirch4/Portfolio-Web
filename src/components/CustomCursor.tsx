@@ -8,20 +8,30 @@ export default function CustomCursor() {
   
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
+  const cursorSize = useMotionValue(32); // Default size 32px
 
   // Spring physics configuration for the fluid trailing effect
   const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
+  const cursorSizeSpring = useSpring(cursorSize, springConfig);
 
   useEffect(() => {
     // Only show on devices with a fine pointer (mouse/trackpad, not touch)
     if (window.matchMedia("(pointer: coarse)").matches) return;
 
     const moveCursor = (e: MouseEvent) => {
-      // 16 is half the width/height (32px / 2) to center the cursor
-      cursorX.set(e.clientX - 16);
-      cursorY.set(e.clientY - 16);
+      const target = e.target as HTMLElement;
+      // Check if hovering over an element with data-cursor="hover"
+      const isHovering = !!target.closest('[data-cursor="hover"]');
+      
+      const currentSize = isHovering ? 80 : 32; // Expand to 80px on hover
+      const offset = currentSize / 2;
+      
+      cursorSize.set(currentSize);
+      cursorX.set(e.clientX - offset);
+      cursorY.set(e.clientY - offset);
+      
       if (!isVisible) setIsVisible(true);
     };
 
@@ -41,10 +51,12 @@ export default function CustomCursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-[100] hidden h-8 w-8 rounded-full border border-white mix-blend-difference md:block"
+      className="pointer-events-none fixed left-0 top-0 z-[100] hidden rounded-full border border-white mix-blend-difference md:block"
       style={{
         x: cursorXSpring,
         y: cursorYSpring,
+        width: cursorSizeSpring,
+        height: cursorSizeSpring,
         opacity: isVisible ? 1 : 0,
       }}
     />
