@@ -26,7 +26,7 @@ Please initialize and use the following stack:
 ### A. Hero Section
 * **Visual:** Full-screen height (`min-h-screen`). A very large, bold Flerdesign-style typography entrance.
 * **Content:** * "Hi, I'm Dimas."
-  * Subtitle: "Crafting digital experiences. Web Developer | Tech Enthusiast."
+  * Subtitle: "Crafting digital experiences. Software Engineer | AI Engineer."
 * **Action:** A glowing, Antigravity-style CTA button saying "Explore My Work" that scrolls smoothly to the Projects section.
 * **Background:** Subtle, slow-moving mesh gradient or subtle grid background.
 
