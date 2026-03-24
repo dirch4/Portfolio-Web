@@ -2,146 +2,184 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Code, Database, PenTool } from "lucide-react";
+
+const expertise = [
+  {
+    title: "Frontend & Full-Stack Web",
+    tech: "React.js, Next.js, Tailwind CSS, Express.js, MongoDB.",
+    desc: "Focus on clean and responsive architecture."
+  },
+  {
+    title: "Machine Learning & AI",
+    tech: "Python, TensorFlow, Data Preprocessing, Model Training.",
+    desc: "Focus on integrating AI into digital solutions."
+  },
+  {
+    title: "Cloud Computing",
+    tech: "Amazon Web Services (AWS)",
+    desc: "Architecture & Deployment."
+  },
+  {
+    title: "Cybersecurity",
+    tech: "Data Security",
+    desc: "System Integrity."
+  }
+];
 
 export default function TechStack() {
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   
-  // Curve swipe reveal effect 
+  // Track scroll hanya pada area kontainer SVG timeline
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["0 1", "0.4 1"] 
+    offset: ["start center", "end center"]
   });
 
-  const clipPath = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["ellipse(50% 0% at 50% 100%)", "ellipse(150% 150% at 50% 100%)"]
-  );
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-    },
-  };
-
   return (
-    <motion.section 
-      ref={containerRef}
-      style={{ clipPath }}
-      id="expertise" 
-      className="relative flex min-h-screen w-full items-center justify-center px-4 py-24 pb-32"
-    >
-      <div className="w-full max-w-6xl mx-auto flex flex-col space-y-16">
-        
-        {/* Section Heading */}
+    <section id="tech-stack" className="relative w-full py-32 bg-transparent overflow-hidden">
+      
+      {/* 1. PEMISAHAN HEADING - Bebas dari jeratan tumpang tindih SVG */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-24 md:mb-32 relative z-20">
         <motion.div
            initial={{ opacity: 0, y: 30 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true, margin: "-100px" }}
-           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
+           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
            className="text-center"
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-zinc-900 dark:text-zinc-50 mb-6">Expertise.</h2>
+          <h2 className="text-4xl sm:text-5xl lg:text-5xl font-medium tracking-tight text-zinc-900 dark:text-zinc-50 mb-6">Expertise & Stack.</h2>
           <p className="text-zinc-600 dark:text-zinc-400 text-lg sm:text-xl max-w-2xl mx-auto">
-            A comprehensive toolkit designed to build robust, beautiful, and highly-performant digital experiences.
+            A comprehensive arsenal of languages, frameworks, and tools defining my engineering capabilities.
           </p>
         </motion.div>
-
-        {/* Bento Box Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {/* Card 1: Web Development (Spans 2 columns on large screens) */}
-          <motion.div 
-            variants={itemVariants}
-            data-cursor="hover"
-            className="group relative col-span-1 md:col-span-2 lg:col-span-2 overflow-hidden bg-glass border border-glass rounded-3xl p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-glass hover:shadow-[0_0_40px_-10px_rgba(34,211,238,0.15)]"
-          >
-            {/* Inner Hover Glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            
-            <div className="relative z-10 flex flex-col h-full justify-between gap-8">
-              <div className="p-4 bg-zinc-50 dark:bg-white/5 w-max rounded-2xl border border-zinc-200 dark:border-white/10 group-hover:border-cyan-500/30 transition-colors">
-                <Code className="w-8 h-8 text-cyan-600 dark:text-cyan-400" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-medium text-zinc-900 dark:text-zinc-50 mb-3">Web Development</h3>
-                <p className="text-zinc-600 dark:text-zinc-400 text-lg">Architecting modern, scalable, and highly interactive frontends. Engineering performance and smooth UX using <span className="text-zinc-900 dark:text-zinc-50 font-medium">Next.js, React, and Tailwind CSS</span>.</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Card 2: Data Analysis & ML */}
-          <motion.div 
-            variants={itemVariants}
-            data-cursor="hover"
-            className="group relative col-span-1 border overflow-hidden bg-glass border-glass rounded-3xl p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-glass hover:shadow-[0_0_40px_-10px_rgba(168,85,247,0.15)]"
-          >
-            <div className="absolute inset-0 bg-gradient-to-bl from-purple-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-purple-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-            <div className="relative z-10 flex flex-col h-full justify-between gap-8">
-              <div className="p-4 bg-zinc-50 dark:bg-white/5 w-max rounded-2xl border border-zinc-200 dark:border-white/10 group-hover:border-purple-500/30 transition-colors">
-                <Database className="w-8 h-8 text-purple-600 dark:text-purple-400" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-medium text-zinc-900 dark:text-zinc-50 mb-3">Data Analysis & Machine Learning</h3>
-                <p className="text-zinc-600 dark:text-zinc-400 text-lg">Extracting insights from complex data streams and implementing intelligent models.</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Card 3: UI UX Desainer (Spans full width or remaining space) */}
-          <motion.div 
-            variants={itemVariants}
-            data-cursor="hover"
-            className="group relative col-span-1 md:col-span-2 lg:col-span-3 overflow-hidden bg-glass border border-glass rounded-3xl p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-glass hover:shadow-[0_0_40px_-10px_rgba(236,72,153,0.15)]"
-          >
-            <div className="absolute inset-0 bg-gradient-to-tr from-pink-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-pink-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-            <div className="relative z-10 flex flex-col md:flex-row h-full justify-between items-start md:items-center gap-8">
-              <div className="flex flex-col gap-8 flex-1">
-                <div className="p-4 bg-zinc-50 dark:bg-white/5 w-max rounded-2xl border border-zinc-200 dark:border-white/10 group-hover:border-pink-500/30 transition-colors">
-                  <PenTool className="w-8 h-8 text-pink-600 dark:text-pink-400" />
-                </div>
-                <div className="max-w-2xl">
-                  <h3 className="text-2xl font-medium text-zinc-900 dark:text-zinc-50 mb-3">UI UX Desainer</h3>
-                  <p className="text-zinc-600 dark:text-zinc-400 text-lg">Crafting intuitive, user-centric interfaces. Balancing bold aesthetics (Flerdesign) and functional precision (Antigravity) to deliver highly engaging experiences.</p>
-                </div>
-              </div>
-              
-              {/* Abstract decorative element for UI/UX Card */}
-              <div className="hidden md:flex flex-1 justify-end opacity-40 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                <div className="grid grid-cols-2 gap-3 transform group-hover:rotate-6 transition-transform duration-700">
-                  <div className="w-16 h-16 rounded-full border border-pink-500/50" />
-                  <div className="w-16 h-16 rounded-3xl bg-pink-500/20 backdrop-blur-sm" />
-                  <div className="w-16 h-16 rounded-3xl bg-white/5 border border-white/10" />
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-pink-500/40 to-transparent" />
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-        </motion.div>
       </div>
-    </motion.section>
+
+      {/* 2. KONTAINER UTAMA TIMELINE (Center-Axis Layout) */}
+      <div 
+        ref={containerRef}
+        className="relative w-full max-w-5xl mx-auto h-[130vh] md:h-[150vh] py-10"
+      >
+        {/* --- PITA BEZIER TUNGGAL LENGKUNG LEBAR (Single Continuous Smooth Curve) --- */}
+        <svg 
+          className="absolute inset-0 w-full h-full pointer-events-none z-0" 
+          viewBox="0 0 100 100" 
+          preserveAspectRatio="none"
+        >
+          {/* Masking sempurna agar garis tidak putus-putus akibat vectorEffect */}
+          <defs>
+            <clipPath id="reveal-mask">
+              <motion.rect x="0" y="0" width="100%" style={{ height: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]) }} />
+            </clipPath>
+          </defs>
+          <path 
+            /*
+              Penciptaan Alur Pita Berkelanjutan (Mendekati Kartu):
+              - M 50 0 -> Mulai di tengah atas.
+              - C -10 6.25, -10 6.25, 50 12.5 -> Melebar drastis ke KIRI (mencapai X=5%), persis menyapu di belakang Kartu 0.
+              - S 110 31.25, 50 37.5 -> Memantul drastis ke KANAN (mencapai X=95%), menyapu di belakang Kartu 1.
+              - S -10 56.25, 50 62.5 -> Melebar drastis ke KIRI.
+              - S 110 81.25, 50 87.5 -> Melebar drastis ke KANAN.
+              - S -10 100, 50 100 -> Turun drastis ke KIRI dan berakhir.
+            */
+            d="M 50 0 
+               C -10 6.25, -10 6.25, 50 12.5 
+               S 110 31.25, 50 37.5 
+               S -10 56.25, 50 62.5 
+               S 110 81.25, 50 87.5 
+               S -10 100, 50 100" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="8" 
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            vectorEffect="non-scaling-stroke"
+            // Mengubah warna menjadi netral agar menyatu elegan dengan background situs
+            className="text-zinc-300 dark:text-zinc-800"
+            style={{ 
+              clipPath: "url(#reveal-mask)", 
+            }} 
+          />
+        </svg>
+
+        {/* --- CENTER-AXIS KARTU KEAHLIAN --- */}
+        {expertise.map((item, index) => {
+          const isLeftCol = index % 2 === 0;
+          
+          // Y-Kordinat presisi mutlak menyamakan titik potong Bezier SVG (12.5%, 37.5%, 62.5%, 87.5%)
+          const topPercentages = [12.5, 37.5, 62.5, 87.5];
+          const topPercentage = topPercentages[index];
+          
+          return (
+            <div 
+              key={index} 
+              className="absolute w-full px-4 sm:px-12 md:px-0 flex items-center justify-center md:justify-between"
+              style={{ 
+                top: `${topPercentage}%`, 
+                transform: 'translateY(-50%)' 
+              }}
+            >
+              {/* KOLOM KIRI: Tempat Kartu Genap (atau dihilangkan visibilitasnya jika Ganjil di Desktop) */}
+              <div 
+                className={`w-full md:w-1/2 flex ${
+                  isLeftCol ? 'md:justify-end md:pr-16' : 'hidden md:flex md:invisible'
+                } relative z-10`}
+              >
+                {isLeftCol && (
+                  <motion.div 
+                    initial={{ opacity: 0, x: -50, scale: 0.95 }}
+                    whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    data-cursor="hover"
+                    className="w-full xl:w-[85%] flex flex-col p-8 md:p-10 bg-glass border border-glass rounded-[2rem] backdrop-blur-3xl shadow-2xl transition-transform duration-500 hover:scale-[1.03]"
+                  >
+                    <h3 className="text-2xl font-medium text-zinc-900 dark:text-zinc-50 mb-3 leading-snug">
+                      {item.title}
+                    </h3>
+                    <div className="mb-4">
+                      <h4 className="text-[10px] font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-widest mb-2">Technologies</h4>
+                      <p className="text-zinc-800 dark:text-zinc-200 font-medium">{item.tech}</p>
+                    </div>
+                    <div className="pt-4 border-t border-zinc-200 dark:border-white/10 mt-auto">
+                      <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                )}
+              </div>
+
+              {/* KOLOM KANAN: Tempat Kartu Ganjil (atau dihilangkan visibilitasnya jika Genap di Desktop) */}
+              <div 
+                className={`w-full md:w-1/2 flex ${
+                  !isLeftCol ? 'md:justify-start md:pl-16' : 'hidden md:flex md:invisible'
+                } relative z-10`}
+              >
+                {!isLeftCol && (
+                  <motion.div 
+                    initial={{ opacity: 0, x: 50, scale: 0.95 }}
+                    whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    data-cursor="hover"
+                    className="w-full xl:w-[85%] flex flex-col p-8 md:p-10 bg-glass border border-glass rounded-[2rem] backdrop-blur-3xl shadow-2xl transition-transform duration-500 hover:scale-[1.03]"
+                  >
+                    <h3 className="text-2xl font-medium text-zinc-900 dark:text-zinc-50 mb-3 leading-snug">
+                      {item.title}
+                    </h3>
+                    <div className="mb-4">
+                      <h4 className="text-[10px] font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-widest mb-2">Technologies</h4>
+                      <p className="text-zinc-800 dark:text-zinc-200 font-medium">{item.tech}</p>
+                    </div>
+                    <div className="pt-4 border-t border-zinc-200 dark:border-white/10 mt-auto">
+                      <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                )}
+              </div>
+
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }
