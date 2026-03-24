@@ -6,6 +6,7 @@ import CustomCursor from "@/components/CustomCursor";
 import BackgroundGlow from "@/components/BackgroundGlow";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ThemeToggle from "@/components/ThemeToggle";
+import Preloader from "@/components/Preloader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <Preloader />
           <BackgroundGlow />
           <CustomCursor />
           <ThemeToggle />
