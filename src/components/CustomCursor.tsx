@@ -22,8 +22,9 @@ export default function CustomCursor() {
 
     const moveCursor = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      // Check if hovering over an element with data-cursor="hover"
+      // Check if hovering over an element with data-cursor="hover" or data-cursor="project"
       const isHovering = !!target.closest('[data-cursor="hover"]');
+      const isHoveringProject = !!target.closest('[data-cursor="project"]');
       
       const currentSize = isHovering ? 80 : 32; // Expand to 80px on hover
       const offset = currentSize / 2;
@@ -32,7 +33,11 @@ export default function CustomCursor() {
       cursorX.set(e.clientX - offset);
       cursorY.set(e.clientY - offset);
       
-      if (!isVisible) setIsVisible(true);
+      if (isHoveringProject) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
     };
 
     const handleMouseLeave = () => setIsVisible(false);
@@ -51,7 +56,7 @@ export default function CustomCursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-[100] hidden rounded-full border border-zinc-900 dark:border-white bg-transparent md:block"
+      className="pointer-events-none fixed left-0 top-0 z-[99999] hidden rounded-full border border-zinc-900 dark:border-white bg-transparent md:block"
       style={{
         x: cursorXSpring,
         y: cursorYSpring,

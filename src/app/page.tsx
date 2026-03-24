@@ -1,6 +1,8 @@
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import TechStack from "@/components/TechStack";
+import ExperienceSection from "@/components/ExperienceSection";
+import ProjectsSection from "@/components/ProjectsSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -9,6 +11,8 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <TechStack />
+      <ExperienceSection />
+      <ProjectsSection />
       <Footer />
     </main>
   );
