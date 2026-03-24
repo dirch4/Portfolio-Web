@@ -18,7 +18,7 @@ export default function HeroSection() {
     setMounted(true);
   }, []);
 
-  const headingText = "Hi, I'm Dimas|";
+  const headingText = "Hi, I'm Dimas Nurcahya|";
   const letters = Array.from(headingText);
 
   // Stagger base untuk barisan ketikan mesin tik (Typewriter container)
@@ -73,7 +73,7 @@ export default function HeroSection() {
         initial -> show akan dijamin 100% memompa iterasi anak-anaknya.
       */}
       {!isAppLoading && (
-        <div 
+        <div
           key={mounted ? resolvedTheme : "system"}
           className="z-10 text-center w-full max-w-5xl mx-auto flex flex-col items-center"
         >
@@ -86,10 +86,10 @@ export default function HeroSection() {
             {letters.map((letter, index) => {
               // Evaluasi apakah karakter ini adalah palang vertikal (|) dari ujung teks
               const isCursor = letter === "|";
-              
+
               return (
-                <motion.span 
-                  key={index} 
+                <motion.span
+                  key={index}
                   variants={letterVariant}
                   className={isCursor ? "relative inline-flex font-light ml-1" : ""}
                 >
@@ -103,9 +103,9 @@ export default function HeroSection() {
                     <motion.span
                       initial={{ opacity: 1 }} // Harus 1 di awal agar saat parent memudar naik (typewriter), ia ikut terlihat
                       animate={{ opacity: [1, 0, 1] }}
-                      transition={{ 
-                        repeat: Infinity, 
-                        duration: 0.8, 
+                      transition={{
+                        repeat: Infinity,
+                        duration: 0.8,
                         ease: "linear",
                         delay: 1.0 // Berkedip persis setelah huruf terakhir selesai diketik (disinkronkan ke 1.0s)
                       }}
@@ -128,12 +128,12 @@ export default function HeroSection() {
             Crafting digital experiences. Software Engineer | AI Engineer.
           </motion.p>
 
-          <motion.div 
+          <motion.div
             variants={fadeUpVariant}
             initial="hidden"
             animate="show"
           >
-            <Link 
+            <Link
               href="#projects"
               onClick={(e) => {
                 e.preventDefault();
@@ -144,7 +144,7 @@ export default function HeroSection() {
                 {/* Top and Bottom Glowing Lines on Hover */}
                 <span className="absolute inset-x-0 -top-px mx-auto h-[2px] w-1/2 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
                 <span className="absolute inset-x-0 -bottom-px mx-auto h-[2px] w-1/2 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
-                
+
                 Explore My Work
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
