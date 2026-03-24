@@ -7,6 +7,7 @@ import BackgroundGlow from "@/components/BackgroundGlow";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ThemeToggle from "@/components/ThemeToggle";
 import Preloader from "@/components/Preloader";
+import BackToTop from "@/components/BackToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,7 @@ export default function RootLayout({
           <BackgroundGlow />
           <CustomCursor />
           <ThemeToggle />
+          <BackToTop />
           <SmoothScroll>{children}</SmoothScroll>
         </ThemeProvider>
       </body>
