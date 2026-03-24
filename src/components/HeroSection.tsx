@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import ParticleGlobe from "@/components/ParticleGlobe";
 
 export default function HeroSection() {
   // Staggered animation container
@@ -30,7 +31,10 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative flex min-h-screen w-full flex-col items-center justify-center px-4 overflow-hidden pt-20">
+    <section className="relative flex min-h-screen w-full flex-col items-center justify-center px-4 overflow-hidden pt-20 bg-transparent">
+      {/* Latar Belakang 3D Sphere Particle Wavy Math */}
+      <ParticleGlobe />
+
       <motion.div
         variants={containerVariants}
         initial="hidden"
