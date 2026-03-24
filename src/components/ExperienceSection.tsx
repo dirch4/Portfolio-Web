@@ -5,22 +5,10 @@ import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 
 const experiences = [
   {
-    company: "AMANA Solution",
-    role: "Web Developer Internship",
-    date: "Des 2025 - Present",
-    description: "Built responsive web apps, conducted testing & debugging to resolve UI/system bugs. Collaborated with cross-functional teams to elevate user experience."
-  },
-  {
-    company: "Ministry of Health RI",
-    role: "Web Developer Internship",
-    date: "Aug 2025 - Nov 2025",
-    description: "Developed sandbox kemkes using React.js, Express.js, MongoDB for digital health services. Ensured high reliability and strict data handling processes passing national standards."
-  },
-  {
-    company: "Timedoor Academy",
-    role: "Part-Time Programming Teacher",
-    date: "Apr 2025 - Present",
-    description: "Teach coding (Block-based to Custom JS) to students aged 5-18. Developed curriculum adaptations to simplify complex computing logic for younger audiences."
+    company: "PT Lingkar Sembilan Tititan Media",
+    role: "Software Engineer Intern",
+    date: "Aug 2021 - Oct 2021",
+    description: "Led a software team to develop a geo-coordinate based attendance tracking website, ensuring robust location tracking and offline-first capabilities."
   },
   {
     company: "DBS Foundation Coding Camp",
@@ -29,10 +17,22 @@ const experiences = [
     description: "Acted as ML Engineer & PM. Developed a recommendation system integrating AI into modern web technologies to serve personalized content streams."
   },
   {
-    company: "PT Lingkar Sembilan Tititan Media",
-    role: "Software Engineer Intern",
-    date: "Aug 2021 - Oct 2021",
-    description: "Led a software team to develop a geo-coordinate based attendance tracking website, ensuring robust location tracking and offline-first capabilities."
+    company: "Timedoor Academy",
+    role: "Part-Time Programming Teacher",
+    date: "Apr 2025 - Present",
+    description: "Teach coding (Block-based to Custom JS) to students aged 5-18. Developed curriculum adaptations to simplify complex computing logic for younger audiences."
+  },
+  {
+    company: "Ministry of Health RI",
+    role: "Web Developer Internship",
+    date: "Aug 2025 - Nov 2025",
+    description: "Developed sandbox kemkes using React.js, Express.js, MongoDB for digital health services. Ensured high reliability and strict data handling processes passing national standards."
+  },
+  {
+    company: "AMANA Solution",
+    role: "Web Developer Internship",
+    date: "Des 2025 - Present",
+    description: "Built responsive web apps, conducted testing & debugging to resolve UI/system bugs. Collaborated with cross-functional teams to elevate user experience."
   }
 ];
 

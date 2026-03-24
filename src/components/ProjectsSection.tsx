@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
-import { X, ExternalLink } from "lucide-react";
+import { X, ExternalLink, Github } from "lucide-react";
 
 // 1. Data Proyek (Placeholder)
 const projects = [
@@ -255,15 +255,30 @@ export default function ProjectsSection() {
                 <X className="w-5 h-5" />
               </button>
 
+              {/* Sisi Kiri / Media Container (Sekarang berisi Tombol Aksi) */}
               <div 
-                className="w-full md:w-5/12 lg:w-1/2 h-64 md:h-auto shrink-0 relative flex"
+                className="w-full md:w-5/12 lg:w-1/2 h-80 md:h-auto shrink-0 relative flex flex-col justify-end p-6 md:p-8 lg:p-12"
               >
+                {/* Background Image Absolute */}
                 <div 
-                  className="w-full h-full object-cover" 
+                  className="absolute inset-0 w-full h-full object-cover" 
                   style={{ background: selectedProject.image }}
                 />
                 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                {/* Gradient gelap di bawah untuk kontras tombol */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+
+                {/* Tombol Aksi - Floating di pojok kiri bawah gambar */}
+                <div className="relative z-10 flex flex-col sm:flex-row gap-4 mt-auto pt-10">
+                  <button data-cursor="hover" className="group flex items-center justify-center gap-2 px-6 py-3 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium backdrop-blur-md transition-all shadow-xl">
+                    <span>View Live Site</span>
+                    <ExternalLink className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </button>
+                  <button data-cursor="hover" className="group flex items-center justify-center gap-2 px-6 py-3 sm:py-4 rounded-full bg-black/40 hover:bg-black/60 border border-white/10 text-white/90 hover:text-white font-medium backdrop-blur-md transition-all shadow-xl">
+                    <Github className="w-4 h-4" />
+                    <span>Repository</span>
+                  </button>
+                </div>
               </div>
 
               {/* Sisi Kanan: Konten Teks */}
@@ -294,12 +309,6 @@ export default function ProjectsSection() {
                   </div>
                 </div>
 
-                <div className="pt-8 border-t border-zinc-200 dark:border-white/10 mt-auto">
-                  <button data-cursor="hover" className="group flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-full bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors">
-                    <span>View Live Site</span>
-                    <ExternalLink className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                  </button>
-                </div>
               </div>
             </motion.div>
           </motion.div>
