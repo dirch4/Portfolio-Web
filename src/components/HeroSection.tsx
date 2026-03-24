@@ -39,21 +39,21 @@ export default function HeroSection() {
       >
         <motion.h1
           variants={itemVariants}
-          className="mb-6 font-bold tracking-tighter text-white text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
+          className="mb-6 font-medium tracking-tighter text-zinc-900 dark:text-zinc-50 text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
         >
           Hi, I&apos;m Dimas.
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
-          className="mb-12 text-lg text-gray-400 sm:text-xl md:text-2xl font-medium max-w-2xl mx-auto"
+          className="mb-12 text-lg text-zinc-600 dark:text-zinc-400 sm:text-xl md:text-2xl font-medium max-w-2xl mx-auto"
         >
           Crafting digital experiences. Software Engineer | AI Engineer.
         </motion.p>
 
         <motion.div variants={itemVariants}>
           <Link href="#projects">
-            <button className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm md:text-base font-medium text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/30 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.2)]">
+            <button className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-50/50 dark:bg-white/5 px-8 py-4 text-sm md:text-base font-medium text-zinc-900 dark:text-white backdrop-blur-md transition-all duration-300 hover:bg-zinc-100 dark:hover:bg-white/10 hover:border-zinc-300 dark:hover:border-white/30 hover:shadow-[0_0_40px_-10px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.2)]">
               {/* Top and Bottom Glowing Lines on Hover */}
               <span className="absolute inset-x-0 -top-px mx-auto h-[2px] w-1/2 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
               <span className="absolute inset-x-0 -bottom-px mx-auto h-[2px] w-1/2 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>

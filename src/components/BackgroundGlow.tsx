@@ -17,7 +17,7 @@ export default function BackgroundGlow() {
     return () => window.removeEventListener("mousemove", handlePointerMove);
   }, [mouseX, mouseY]);
 
-  const background = useMotionTemplate`radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(255,255,255,0.06), transparent 80%)`;
+  const background = useMotionTemplate`radial-gradient(600px circle at ${mouseX}px ${mouseY}px, var(--cursor-glow), transparent 80%)`;
 
   return (
     <motion.div

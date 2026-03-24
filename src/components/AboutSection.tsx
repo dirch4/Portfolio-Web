@@ -58,20 +58,20 @@ export default function AboutSection() {
           <div className="flex flex-col space-y-6">
             <motion.h2 
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white"
+              className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-zinc-900 dark:text-zinc-50"
             >
               About Me.
             </motion.h2>
             
-            <motion.div variants={itemVariants} className="space-y-4 text-gray-400 text-lg sm:text-xl md:text-2xl leading-relaxed lg:leading-snug">
+            <motion.div variants={itemVariants} className="space-y-4 text-zinc-600 dark:text-zinc-400 text-lg sm:text-xl md:text-2xl leading-relaxed lg:leading-snug">
               <p>
-                Hi! I am a passionate <span className="text-white font-medium">Computer Science student</span> currently studying at <span className="text-white font-medium">Universitas Pakuan</span>. 
+                Hi! I am a passionate <span className="text-zinc-900 dark:text-zinc-50 font-medium">Computer Science student</span> currently studying at <span className="text-zinc-900 dark:text-zinc-50 font-medium">Universitas Pakuan</span>. 
               </p>
               <p>
                 My journey in tech is driven by a deep curiosity for building scalable systems, crafting beautiful user interfaces, and exploring the cutting edge of AI.
               </p>
               <p>
-                Currently, I am working as a <span className="text-white font-medium">Web Developer Intern</span> at <span className="text-cyan-400 font-medium cursor-default">AMANA Solution</span>, specifically within the <span className="text-white font-medium">PG Health division</span>, where I apply my technical skills to solve real-world problems.
+                Currently, I am working as a <span className="text-zinc-900 dark:text-zinc-50 font-medium">Web Developer Intern</span> at <span className="text-cyan-600 dark:text-cyan-400 font-medium cursor-default">AMANA Solution</span>, specifically within the <span className="text-zinc-900 dark:text-zinc-50 font-medium">PG Health division</span>, where I apply my technical skills to solve real-world problems.
               </p>
             </motion.div>
           </div>
@@ -79,51 +79,51 @@ export default function AboutSection() {
           {/* Split Layout Right: Stylized Aesthetic Tech Card */}
           <motion.div 
             variants={itemVariants}
-            className="relative w-full bg-white/[0.03] border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-md overflow-hidden group shadow-2xl"
+            className="relative w-full bg-glass border border-glass rounded-3xl p-6 sm:p-8 backdrop-blur-md overflow-hidden group shadow-xl dark:shadow-2xl"
           >
             {/* Subtle inner glowing gradient effect on hover to match Antigravity style */}
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
             
             <div className="relative z-10 h-full flex flex-col justify-between min-h-[400px]">
               {/* Window Controls aesthetic */}
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+              <div className="flex items-center justify-between border-b border-zinc-200 dark:border-white/10 pb-4">
                 <div className="flex space-x-2">
                   <div className="w-3 h-3 rounded-full bg-red-500/80" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                   <div className="w-3 h-3 rounded-full bg-green-500/80" />
                 </div>
-                <p className="text-xs text-gray-500 font-mono">dimas_profile.ts</p>
+                <p className="text-xs text-zinc-500 dark:text-gray-500 font-mono">dimas_profile.ts</p>
               </div>
 
               {/* Skills/Tech items in a sleek layout */}
               <div className="flex-1 mt-8 mb-4 flex flex-col justify-center space-y-6">
-                <div className="flex items-center space-x-4 p-2 rounded-2xl transition-colors hover:bg-white/5">
-                  <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-                    <Terminal className="w-6 h-6 text-cyan-400" />
+                <div className="flex items-center space-x-4 p-2 rounded-2xl transition-colors hover:bg-zinc-100 dark:hover:bg-white/5">
+                  <div className="p-3 bg-zinc-50 dark:bg-white/5 rounded-xl border border-zinc-200 dark:border-white/10">
+                    <Terminal className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
                   </div>
                   <div>
-                    <h3 className="text-white font-medium text-lg">Frontend & Web</h3>
-                    <p className="text-sm text-gray-400">Next.js, React, Tailwind CSS</p>
+                    <h3 className="text-zinc-900 dark:text-white font-medium text-lg">Frontend & Web</h3>
+                    <p className="text-sm text-zinc-600 dark:text-gray-400">Next.js, React, Tailwind CSS</p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4 p-2 rounded-2xl transition-colors hover:bg-white/5">
-                  <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-                    <Database className="w-6 h-6 text-purple-400" />
+                <div className="flex items-center space-x-4 p-2 rounded-2xl transition-colors hover:bg-zinc-100 dark:hover:bg-white/5">
+                  <div className="p-3 bg-zinc-50 dark:bg-white/5 rounded-xl border border-zinc-200 dark:border-white/10">
+                    <Database className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="text-white font-medium text-lg">Cloud & ML</h3>
-                    <p className="text-sm text-gray-400">AWS Infrastructure, Data Analysis</p>
+                    <h3 className="text-zinc-900 dark:text-white font-medium text-lg">Cloud & ML</h3>
+                    <p className="text-sm text-zinc-600 dark:text-gray-400">AWS Infrastructure, Data Analysis</p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4 p-2 rounded-2xl transition-colors hover:bg-white/5">
-                  <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-                    <Code2 className="w-6 h-6 text-blue-400" />
+                <div className="flex items-center space-x-4 p-2 rounded-2xl transition-colors hover:bg-zinc-100 dark:hover:bg-white/5">
+                  <div className="p-3 bg-zinc-50 dark:bg-white/5 rounded-xl border border-zinc-200 dark:border-white/10">
+                    <Code2 className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
-                    <h3 className="text-white font-medium text-lg">Cyber Security</h3>
-                    <p className="text-sm text-gray-400">Security Fundamentals & Implementation</p>
+                    <h3 className="text-zinc-900 dark:text-white font-medium text-lg">Cyber Security</h3>
+                    <p className="text-sm text-zinc-600 dark:text-gray-400">Security Fundamentals & Implementation</p>
                   </div>
                 </div>
               </div>
