@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import ThemeToggle from "@/components/ThemeToggle";
 import Preloader from "@/components/Preloader";
 import BackToTop from "@/components/BackToTop";
+import { LoadingProvider } from "@/components/LoadingContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,12 +43,14 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <Preloader />
-          <BackgroundGlow />
-          <CustomCursor />
-          <ThemeToggle />
-          <BackToTop />
-          <SmoothScroll>{children}</SmoothScroll>
+          <LoadingProvider>
+            <Preloader />
+            <BackgroundGlow />
+            <CustomCursor />
+            <ThemeToggle />
+            <BackToTop />
+            <SmoothScroll>{children}</SmoothScroll>
+          </LoadingProvider>
         </ThemeProvider>
       </body>
     </html>

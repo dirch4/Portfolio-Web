@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLoading } from "@/components/LoadingContext";
 
 const greetings = [
   "Hello", // English
@@ -15,6 +16,7 @@ const greetings = [
 export default function Preloader() {
   const [index, setIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const { setIsAppLoading } = useLoading();
 
   // Scroll lock system
   useEffect(() => {
@@ -25,10 +27,12 @@ export default function Preloader() {
       const timeout = setTimeout(() => {
         document.body.style.overflow = "";
         window.scrollTo(0, 0); 
+        // Lapor ke Context Global web bahwa rintangan UI sudah bersih
+        setIsAppLoading(false);
       }, 1000); 
       return () => clearTimeout(timeout);
     }
-  }, [isLoading]);
+  }, [isLoading, setIsAppLoading]);
 
   // Rotator bahasa otomatis
   useEffect(() => {
