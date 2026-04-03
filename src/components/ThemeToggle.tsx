@@ -15,6 +15,7 @@ export default function ThemeToggle() {
   const [targetTheme, setTargetTheme] = useState<"light" | "dark">("light");
 
   // Prevent hydration mismatch
+  // eslint-disable-next-line
   useEffect(() => setMounted(true), []);
 
   if (!mounted) return null;
