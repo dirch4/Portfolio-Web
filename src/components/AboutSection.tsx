@@ -4,6 +4,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Terminal, Code2, Database } from "lucide-react";
 
+import RollingTechWheel from "./RollingTechWheel";
+
 export default function AboutSection() {
   const containerRef = useRef<HTMLElement>(null);
 
@@ -76,58 +78,12 @@ export default function AboutSection() {
             </motion.div>
           </div>
 
-          {/* Split Layout Right: Stylized Aesthetic Tech Card */}
+          {/* Split Layout Right: 3D Rolling Tech Wheel */}
           <motion.div 
             variants={itemVariants}
-            className="relative w-full bg-glass border border-glass rounded-3xl p-6 sm:p-8 backdrop-blur-md overflow-hidden group shadow-xl dark:shadow-2xl"
+            className="w-full h-full flex items-center justify-center"
           >
-            {/* Subtle inner glowing gradient effect on hover to match Antigravity style */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-            
-            <div className="relative z-10 h-full flex flex-col justify-between min-h-[400px]">
-              {/* Window Controls aesthetic */}
-              <div className="flex items-center justify-between border-b border-zinc-200 dark:border-white/10 pb-4">
-                <div className="flex space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                </div>
-                <p className="text-xs text-zinc-500 dark:text-gray-500 font-mono">dimas_profile.ts</p>
-              </div>
-
-              {/* Skills/Tech items in a sleek layout */}
-              <div className="flex-1 mt-8 mb-4 flex flex-col justify-center space-y-6">
-                <div className="flex items-center space-x-4 p-2 rounded-2xl transition-colors hover:bg-zinc-100 dark:hover:bg-white/5">
-                  <div className="p-3 bg-zinc-50 dark:bg-white/5 rounded-xl border border-zinc-200 dark:border-white/10">
-                    <Terminal className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-zinc-900 dark:text-white font-medium text-lg">Frontend & Web</h3>
-                    <p className="text-sm text-zinc-600 dark:text-gray-400">Next.js, React, Tailwind CSS</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4 p-2 rounded-2xl transition-colors hover:bg-zinc-100 dark:hover:bg-white/5">
-                  <div className="p-3 bg-zinc-50 dark:bg-white/5 rounded-xl border border-zinc-200 dark:border-white/10">
-                    <Database className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-zinc-900 dark:text-white font-medium text-lg">Cloud & ML</h3>
-                    <p className="text-sm text-zinc-600 dark:text-gray-400">AWS Infrastructure, Data Analysis</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4 p-2 rounded-2xl transition-colors hover:bg-zinc-100 dark:hover:bg-white/5">
-                  <div className="p-3 bg-zinc-50 dark:bg-white/5 rounded-xl border border-zinc-200 dark:border-white/10">
-                    <Code2 className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-zinc-900 dark:text-white font-medium text-lg">Cyber Security</h3>
-                    <p className="text-sm text-zinc-600 dark:text-gray-400">Security Fundamentals & Implementation</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <RollingTechWheel />
           </motion.div>
         </motion.div>
       </div>

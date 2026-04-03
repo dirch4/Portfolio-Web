@@ -6,7 +6,7 @@ import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   const containerRef = useRef<HTMLElement>(null);
-  
+
   // Curve swipe reveal effect using scroll tracking
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -21,7 +21,7 @@ export default function Footer() {
   );
 
   return (
-    <motion.footer 
+    <motion.footer
       ref={containerRef}
       style={{ clipPath }}
       className="relative flex flex-col items-center justify-center w-full px-4 pt-32 pb-12 overflow-hidden bg-zinc-50/50 dark:bg-white/[0.01] border-t border-zinc-200 dark:border-white/[0.05]"
@@ -42,19 +42,19 @@ export default function Footer() {
         </h2>
 
         <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-24">
-          <a href="https://github.com/dimas" target="_blank" rel="noopener noreferrer" data-cursor="hover" className="group flex items-center gap-2 px-6 py-4 rounded-full bg-zinc-100 dark:bg-white/[0.03] border border-zinc-200 dark:border-white/10 hover:bg-zinc-200 dark:hover:bg-white/10 hover:border-zinc-300 dark:hover:border-white/30 hover:scale-105 transition-all duration-300">
+          <a href="https://github.com/dirch4" target="_blank" rel="noopener noreferrer" data-cursor="hover" className="group flex items-center gap-2 px-6 py-4 rounded-full bg-zinc-100 dark:bg-white/[0.03] border border-zinc-200 dark:border-white/10 hover:bg-zinc-200 dark:hover:bg-white/10 hover:border-zinc-300 dark:hover:border-white/30 hover:scale-105 transition-all duration-300">
             <Github className="w-5 h-5 text-zinc-500 dark:text-gray-400 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors" />
             <span className="text-zinc-600 dark:text-gray-400 group-hover:text-zinc-900 dark:group-hover:text-white font-medium">GitHub</span>
             <ArrowUpRight className="w-4 h-4 text-zinc-400 dark:text-gray-500 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors opacity-0 group-hover:opacity-100 -translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0" />
           </a>
-          
-          <a href="https://linkedin.com/in/dimas" target="_blank" rel="noopener noreferrer" data-cursor="hover" className="group flex items-center gap-2 px-6 py-4 rounded-full bg-zinc-100 dark:bg-white/[0.03] border border-zinc-200 dark:border-white/10 hover:bg-zinc-200 dark:hover:bg-white/10 hover:border-zinc-300 dark:hover:border-white/30 hover:scale-105 transition-all duration-300">
+
+          <a href="https://www.linkedin.com/in/dimas-nch/" target="_blank" rel="noopener noreferrer" data-cursor="hover" className="group flex items-center gap-2 px-6 py-4 rounded-full bg-zinc-100 dark:bg-white/[0.03] border border-zinc-200 dark:border-white/10 hover:bg-zinc-200 dark:hover:bg-white/10 hover:border-zinc-300 dark:hover:border-white/30 hover:scale-105 transition-all duration-300">
             <Linkedin className="w-5 h-5 text-zinc-500 dark:text-gray-400 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors" />
             <span className="text-zinc-600 dark:text-gray-400 group-hover:text-zinc-900 dark:group-hover:text-white font-medium">LinkedIn</span>
             <ArrowUpRight className="w-4 h-4 text-zinc-400 dark:text-gray-500 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors opacity-0 group-hover:opacity-100 -translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0" />
           </a>
 
-          <a href="mailto:dimas@example.com" data-cursor="hover" className="group flex items-center gap-2 px-6 py-4 rounded-full bg-zinc-100 dark:bg-white/[0.03] border border-zinc-200 dark:border-white/10 hover:bg-zinc-200 dark:hover:bg-white/10 hover:border-zinc-300 dark:hover:border-white/30 hover:scale-105 transition-all duration-300">
+          <a href="mailto:dimasnurcahya478@gmail.com" data-cursor="hover" className="group flex items-center gap-2 px-6 py-4 rounded-full bg-zinc-100 dark:bg-white/[0.03] border border-zinc-200 dark:border-white/10 hover:bg-zinc-200 dark:hover:bg-white/10 hover:border-zinc-300 dark:hover:border-white/30 hover:scale-105 transition-all duration-300">
             <Mail className="w-5 h-5 text-zinc-500 dark:text-gray-400 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors" />
             <span className="text-zinc-600 dark:text-gray-400 group-hover:text-zinc-900 dark:group-hover:text-white font-medium">Email</span>
             <ArrowUpRight className="w-4 h-4 text-zinc-400 dark:text-gray-500 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors opacity-0 group-hover:opacity-100 -translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0" />
