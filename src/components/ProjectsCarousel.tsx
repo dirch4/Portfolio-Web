@@ -156,10 +156,11 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                       {isImageUrl(project.image) ? (
                         <Image
                           src={project.image}
-                          alt={project.title}
+                          alt={`Screenshot of ${project.title}`}
                           fill
                           sizes="(max-width: 640px) 85vw, 400px"
                           draggable={false}
+                          priority={index < 2}
                           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         />
                       ) : (
@@ -252,7 +253,7 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                 {isImageUrl(selectedProject.image) ? (
                   <Image
                     src={selectedProject.image}
-                    alt={selectedProject.title}
+                    alt={`Screenshot of ${selectedProject.title}`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"

@@ -16,13 +16,49 @@ interface RawRow {
   link_repo?: string;
 }
 
+// ─── FALLBACK DATA ───
+// Digunakan jika Google Sheets down, rate-limited, atau timeout.
+// Website tidak akan pernah kosong melompong.
+const fallbackProjects: Project[] = [
+  {
+    id: 1,
+    title: "E-Commerce App",
+    description:
+      "A full-stack e-commerce platform with real-time inventory management, Stripe payment integration, and an admin dashboard for analytics.",
+    techStack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe"],
+    image: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%)",
+    link_live: null,
+    link_repo: null,
+  },
+  {
+    id: 2,
+    title: "Data Dashboard",
+    description:
+      "An interactive data visualization dashboard powered by machine learning models, featuring real-time charts, anomaly detection, and PDF report generation.",
+    techStack: ["React", "Python", "TensorFlow", "D3.js", "FastAPI"],
+    image: "linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #6366f1 100%)",
+    link_live: null,
+    link_repo: null,
+  },
+];
+
 async function getProjects(): Promise<Project[]> {
   try {
-    const response = await fetch(csvUrl, { next: { revalidate: 60 } });
+    // ─── ABORT CONTROLLER (5s Timeout) ───
+    // Menjaga Time to First Byte (TTFB) agar tidak tergantung pada kecepatan Google Sheets.
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+    const response = await fetch(csvUrl, {
+      next: { revalidate: 60 },
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
 
     if (!response.ok) {
       console.error("Failed to fetch CSV:", response.statusText);
-      return [];
+      return fallbackProjects;
     }
 
     const csvText = await response.text();
@@ -44,19 +80,18 @@ async function getProjects(): Promise<Project[]> {
         : null,
     }));
 
-    return projects;
+    // Jika CSV parse berhasil tapi datanya kosong, gunakan fallback
+    return projects.length > 0 ? projects : fallbackProjects;
   } catch (error) {
+    // AbortError (timeout) atau network error → fallback
     console.error("Error fetching/parsing projects CSV:", error);
-    return [];
+    return fallbackProjects;
   }
 }
 
 export default async function ProjectsSection() {
   const projects = await getProjects();
 
-  if (projects.length === 0) {
-    return null; // Jangan render section jika tidak ada data
-  }
-
   return <ProjectsCarousel projects={projects} />;
 }
+
