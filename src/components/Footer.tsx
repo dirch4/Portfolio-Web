@@ -66,7 +66,6 @@ export default function Footer() {
       <div className="mt-12 w-full max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center pt-8 border-t border-zinc-200 dark:border-white/10 z-10">
         <p className="text-zinc-500 dark:text-gray-500 text-sm">© {new Date().getFullYear()} Dimas. All rights reserved.</p>
         <p className="text-zinc-600 dark:text-gray-600 text-sm mt-4 md:mt-0 flex items-center gap-1 font-medium">
-          Premium Aesthetic <span className="text-zinc-900 dark:text-white/40 ml-1">Flerdesign</span> & <span className="text-zinc-900 dark:text-white/40">Antigravity</span>
         </p>
       </div>
     </motion.footer>
